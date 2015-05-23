@@ -1,6 +1,17 @@
 Rails.application.routes.draw do
+
+  resources :users
+
   get 'search/api_info'
 
+  post '/sessions' => 'sessions#log_in'
+  get '/sessions' => 'sessions#log_in'
+  delete '/sessions' => 'sessions#log_out'
+
+  post '/log_in' => 'sessions#log_in'
+  delete '/log_out' => 'sessions#log_out'
+
+  root 'users#sign_in'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
