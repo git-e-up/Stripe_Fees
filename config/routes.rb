@@ -5,11 +5,18 @@ Rails.application.routes.draw do
   get 'search/api_info'
 
   post '/sessions' => 'sessions#log_in'
-  get '/sessions' => 'sessions#log_in'
   delete '/sessions' => 'sessions#log_out'
+
+  get '/sign_in' => 'users#sign_in'
+  get '/profile' => 'users#profile'
 
   post '/log_in' => 'sessions#log_in'
   delete '/log_out' => 'sessions#log_out'
+
+  get '/new' => 'users#new'
+
+  get '/api_entry' => 'search#create'
+  post '/api_entry' => 'users#key'
 
   root 'users#sign_in'
   # The priority is based upon order of creation: first created -> highest priority.

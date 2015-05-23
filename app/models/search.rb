@@ -1,4 +1,5 @@
 class Search < ActiveRecord::Base
+
   def range(start_date, end_date)
 
     fees_in_range = []
@@ -23,9 +24,7 @@ class Search < ActiveRecord::Base
     end
 
     puts fees_in_range
-
-
-
+    fees_in_range
     end
 
 end

@@ -1,9 +1,9 @@
 class SessionsController < ApplicationController
 
       def log_in
-        user = User.find_by(name: params[:username])
+        user = User.find_by(username: params[:username])
         if user && user.authenticate( params[:password] )
-          session[:user_id] = drinker.id
+          session[:user_id] = user.id
           redirect_to "/profile"
           # skip_before_filter  :verify_authenticity_token
         else

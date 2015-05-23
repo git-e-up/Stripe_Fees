@@ -39,10 +39,17 @@ class UsersController < ApplicationController
     # render sign-in form here
   end
 
+  def key
+    authenticate!
+    current_user.api_key = params[:key]
+    current_user.save!
+    redirect_to '/profile'
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :api_key, :password)
+    params.require(:user).permit(:username, :api_key, :password)
   end
 
 
