@@ -1,0 +1,18 @@
+<% if @user.api_key %>
+
+  <ul>
+    <% @user.fees.each do |fee| %>
+      <li>
+        <%= fee.to_s %>
+      </li>
+    <% end %>
+  </ul>
+
+<% else %>
+
+  <%= form_tag('/api_key', method: :post) do %>
+  <%= text_field_tag :key %>
+  <%= submit_tag "submit " %>
+  <% end %>
+
+<% end %>

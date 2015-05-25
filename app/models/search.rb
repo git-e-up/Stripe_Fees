@@ -23,9 +23,10 @@ class Search < ActiveRecord::Base
     	end
     end
 
-    puts fees_in_range
-    fees_in_range
-    end
+    fees_in_range.each do |amount|
+	     fees_array.push(amount.fee)
+     end
+     puts fees_array.inject{|sum,x| sum + x }
 
 end
 
