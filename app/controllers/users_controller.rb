@@ -33,6 +33,7 @@ class UsersController < ApplicationController
   def profile
     authenticate!
     @user = current_user
+    @fees = @user.fees
     @api_key = (params[:api_key])
   end
 
@@ -42,11 +43,12 @@ class UsersController < ApplicationController
   end
 
   def api_key
+    puts params[:api_key]
     authenticate!
-    current_user.api_key = params[:api_key]
+    
+    current_user.update({api_key: params[:api_key]})
     current_user.save!
-    @api_key = @user.api_key
-    # redirect_to '/profile'
+    redirect_to '/profile'
   end
 
   def calendar
