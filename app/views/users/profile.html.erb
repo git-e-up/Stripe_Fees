@@ -21,7 +21,7 @@
 <% else %>
 
 
-  <%= form_tag('/profile', method: :post) do %>
+  <%= form_tag('/api_key', method: :post) do %>
   <%= text_field_tag :api_key %>
   <%= submit_tag "submit " %>
   <% end %>
@@ -29,7 +29,9 @@
 <% end %>
 
 your api key is
-<%= form_tag('/profile', method: :get) do %>
+<%= form_tag('/api_key', method: :get) do %>
+
+
 </h3>
 
 <% end %>

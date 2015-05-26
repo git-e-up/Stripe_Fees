@@ -45,8 +45,8 @@ class UsersController < ApplicationController
     authenticate!
     current_user.api_key = params[:api_key]
     current_user.save!
-    # @api_key = @user.api_key
-    redirect_to '/profile'
+    @api_key = @user.api_key
+    # redirect_to '/profile'
   end
 
   def calendar
