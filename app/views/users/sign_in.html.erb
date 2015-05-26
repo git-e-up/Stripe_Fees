@@ -1,5 +1,10 @@
 <h3>Sign-In,
+  <% if (@user != nil) %>
         <%= @user.username %>
+      <% else %>
+        <%= "guest" %>
+      <% end %>
+      
 
 
 <%= form_tag('/log_in', method: :post) do %>

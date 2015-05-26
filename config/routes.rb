@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   get '/api_key' => 'users#api_key'
   post '/api_key' => 'users#api_key'
 
+  post '/profile' => 'users#api_key'
+  get '/profile' => 'users#api_key'
+
   root 'users#sign_in'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
