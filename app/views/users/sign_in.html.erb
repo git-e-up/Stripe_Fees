@@ -5,5 +5,9 @@
   <%= text_field_tag :username %>
   <%= label_tag :password %>
   <%= password_field_tag :password %>
-  <%= submit_tag %>
+  <%= submit_tag "Submit" %>
+<% end %>
+
+<%= form_tag('/new', method: :get) do %>
+<%= submit_tag "New users click here " %>
 <% end %>

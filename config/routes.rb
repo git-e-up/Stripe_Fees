@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get '/new' => 'users#new'
 
-  get '/api_entry' => 'search#create'
+  get '/api_entry' => 'users#key'
   post '/api_entry' => 'users#key'
 
   root 'users#sign_in'
