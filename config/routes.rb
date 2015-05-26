@@ -15,8 +15,8 @@ Rails.application.routes.draw do
 
   get '/new' => 'users#new'
 
-  get '/api_entry' => 'users#key'
-  post '/api_entry' => 'users#key'
+  get '/api_key' => 'users#api_key'
+  post '/api_key' => 'users#api_key'
 
   root 'users#sign_in'
   # The priority is based upon order of creation: first created -> highest priority.

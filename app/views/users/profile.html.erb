@@ -20,9 +20,63 @@
 
 <% else %>
 
-  <%= form_tag('/api_entry', method: :post) do %>
-  <%= text_field_tag :key %>
+
+  <%= form_tag('/api_key', method: :post) do %>
+  <%= text_field_tag :api_key %>
   <%= submit_tag "submit " %>
   <% end %>
 
 <% end %>
+
+your api key is
+<%= form_tag('/api_key', method: :get) do %>
+</h3>
+
+<% end %>
+
+<%= @api_key %>
+
+
+<p> start date
+<%= select_date(@start_date, {}, onchange: 'reload_with_date($(this))') %>
+
+<%= javascript_tag do %>
+  # this function will get the date selected
+  # and reload the page with the params[:date]
+
+  window.reload_with_date = function(select_tag) {
+    var start_date = Date.parse( $(select_tag).val() );
+    # get the selected date
+    var current_url = window.location.href;
+    # get the current URL
+    if(current_url.indexOf('?') > -1) {
+      # if already GET params in URL
+      window.location.href = current_url += '&start_date=' + start_date.toString();
+    } else {
+      window.location.href = current_url += '?start_date=' + start_date.toString();
+    }
+  }
+<% end %>
+</p>
+
+<p> end date
+<%= select_date(@end_date, {}, onchange: 'reload_with_date($(this))') %>
+
+<%= javascript_tag do %>
+  # this function will get the date selected
+  # and reload the page with the params[:date]
+
+  window.reload_with_date = function(select_tag) {
+    var end_date = Date.parse( $(select_tag).val() );
+    # get the selected date
+    var current_url = window.location.href;
+    # get the current URL
+    if(current_url.indexOf('?') > -1) {
+      # if already GET params in URL
+      window.location.href = current_url += '&end_date=' + end_date.toString();
+    } else {
+      window.location.href = current_url += '?end_date=' + end_date.toString();
+    }
+  }
+<% end %>
+</p>

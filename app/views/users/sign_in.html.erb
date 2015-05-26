@@ -1,4 +1,6 @@
-<h3>Sign-In, Stripe User</h3>
+<h3>Sign-In,
+        <%= @user.username %>
+
 
 <%= form_tag('/log_in', method: :post) do %>
   <%= label_tag :username %>
