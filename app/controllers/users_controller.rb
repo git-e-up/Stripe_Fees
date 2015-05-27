@@ -51,11 +51,7 @@ class UsersController < ApplicationController
     redirect_to '/profile'
   end
 
-  def calendar
-    @start_date = params[:start_date] || Date.today
-    @end_date = params[:end_date] || Date.today
-  # will set @date to Date.today if params[:date].nil?
-  end
+
 
 
   require 'date'
