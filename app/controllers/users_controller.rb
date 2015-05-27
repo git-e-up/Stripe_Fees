@@ -57,8 +57,23 @@ class UsersController < ApplicationController
   # will set @date to Date.today if params[:date].nil?
   end
 
+
+  require 'date'
   def dates
-    @start_year = params[:start_year] || Date.today
+    authenticate!
+    @user = current_user
+    @api_key = (params[:api_key])
+
+    date = params[:date]
+    year = date[:year].to_i
+    month = date[:month].to_i
+    day = date[:day].to_i
+
+    start_date = Date.new(year, month, day)
+    end_date = start_date.next_month
+
+    @fees = @user.fees(start_date, end_date)
+    render 'profile'
   end
 
   private

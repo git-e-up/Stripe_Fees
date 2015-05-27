@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
 
 
-  def fees(start_date= Date.new(2015,5,11), end_date= Date.new(2015,5,21))
+  def fees(start_date = Date.new(2015,5,11), end_date = Date.new(2015,5,21))
 
     if self.api_key
       Stripe.api_key = self.api_key
@@ -31,6 +31,9 @@ class User < ActiveRecord::Base
       fees_in_range.each do |amount|
          fees_array.push(amount.fee)
       end
+
+      return 0 if fees_array.empty?
+
       final = (fees_array.inject{|sum,x| sum + x })/100.round(2)
 
     else

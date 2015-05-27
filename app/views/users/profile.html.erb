@@ -11,7 +11,7 @@
 <% if @user.api_key %>
 
   <p>your fees for the period are:
-    <strong>$<%= @user.fees %></strong>
+    <strong>$<%= @fees %></strong>
 
   </p>
   <p>
@@ -33,9 +33,10 @@
 <% end %>
 Start year
 <%= form_tag('/dates', method: :post) do %>
-<%= text_field_tag :start_year %>
+<%= select_date() %>
 <%= submit_tag "submit " %>
 <% end %>
+
 
 
 
