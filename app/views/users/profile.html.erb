@@ -10,10 +10,15 @@
 
 <% if @user.api_key %>
 
+  <p>your fees for the period are:
+    <strong>$<%= @user.fees %></strong>
+
+  </p>
   <p>
-    <%= @user.fees %>
-
-
+    your api key contains the following numerals: <strong><%= @user.api_key.gsub!(/[^0123456789 ]/,'') %></strong>
+  <p>
+  <p>
+    for security all letters have been omitted.
 
   </p>
 
@@ -27,7 +32,7 @@
 
 <% end %>
 
-your api key is <strong><%= @user.api_key %></strong>
+
 <!-- <%= form_tag('/api_key', method: :get) do %>
 <% end %> -->
 

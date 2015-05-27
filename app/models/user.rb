@@ -1,23 +1,9 @@
 class User < ActiveRecord::Base
   has_secure_password
-  # def password=(password)
-  #   self.password_digest = BCrypt::Password.create(password)
-  # end
-  #
-  # def is_password?(password)
-  #   BCrypt::Password.new(self.password_digest) == password
-  # end
-  # def fees
-  #   if self.api_key
-  #     Stripe.api_key = self.api_key
-  #     Stripe::BalanceTransaction.all(:limit => 100)
-  #   else
-  #     []
-  #   end
-  # end
 
 
-  def fees(start_date= Date.new(2015,5,1), end_date= Date.new(2015,5,21))
+
+  def fees(start_date= Date.new(2015,5,11), end_date= Date.new(2015,5,21))
 
     if self.api_key
       Stripe.api_key = self.api_key
@@ -28,7 +14,7 @@ class User < ActiveRecord::Base
 
       end_date = end_date.to_time.to_i
 
-      transaction_list =Stripe::BalanceTransaction.all(:limit => 100)
+      transaction_list =Stripe::BalanceTransaction.all(:limit => 1000)
       fees_list  = []
       fees_array = []
 
