@@ -31,8 +31,13 @@
   <% end %>
 
 <% end %>
-Start year
+Start dates
 <%= form_tag('/dates', method: :post) do %>
+<%= select_date() %>
+<%= submit_tag "submit " %>
+<% end %>
+End dates
+<%= form_tag('/end_dates', method: :post) do %>
 <%= select_date() %>
 <%= submit_tag "submit " %>
 <% end %>
