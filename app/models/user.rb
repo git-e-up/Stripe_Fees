@@ -7,8 +7,17 @@ class User < ActiveRecord::Base
   # def is_password?(password)
   #   BCrypt::Password.new(self.password_digest) == password
   # end
+  # def fees
+  #   if self.api_key
+  #     Stripe.api_key = self.api_key
+  #     Stripe::BalanceTransaction.all(:limit => 100)
+  #   else
+  #     []
+  #   end
+  # end
 
-  def fees(start_date= Date.new(2015,5,10), end_date= Date.new(2015,5,21))
+
+  def fees(start_date= Date.new(2015,5,1), end_date= Date.new(2015,5,21))
 
     if self.api_key
       Stripe.api_key = self.api_key
@@ -36,7 +45,7 @@ class User < ActiveRecord::Base
       fees_in_range.each do |amount|
          fees_array.push(amount.fee)
       end
-      puts fees_array.inject{|sum,x| sum + x }
+      final = (fees_array.inject{|sum,x| sum + x })/100.round(2)
 
     else
       []
