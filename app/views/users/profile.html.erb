@@ -31,14 +31,11 @@
   <% end %>
 
 <% end %>
-Start dates
-<%= form_tag('/dates', method: :post) do %>
-<%= select_date() %>
-<%= submit_tag "submit " %>
-<% end %>
-End dates
+
+<strong>Select your date range</strong>
 <%= form_tag('/end_dates', method: :post) do %>
-<%= select_date() %>
+<%= select_date(nil, :prefix => 'start') %>
+<%= select_date(nil, :prefix => 'end') %>
 <%= submit_tag "submit " %>
 <% end %>
 

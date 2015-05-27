@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+
+  def initialize
+    @dates = nil
+  end
   def index
     @users = User.all
   end
@@ -65,12 +69,42 @@ class UsersController < ApplicationController
     month = date[:month].to_i
     day = date[:day].to_i
 
-    start_date = Date.new(year, month, day)
-    end_date = start_date.next_month
+    @dates = Date.new(year, month, day)
+    # @dates = start_date
 
-    @fees = @user.fees(start_date, end_date)
+    # @fees = @user.fees(start_date, end_date)
+    # render 'end_dates'
+  end
+
+  def end_dates
+    authenticate!
+    @user = current_user
+    @api_key = (params[:api_key])
+
+    puts params[:start]
+    puts params[:end]
+
+    start_date = params[:start]
+    end_date = params[:end]
+
+    puts end_date[:year].to_i
+    puts end_date[:month].to_i
+    puts end_date[:day].to_i
+
+    # end_date = params[:date]
+    # end_year = end_date[:year].to_i
+    # end_month = end_date[:month].to_i
+    # end_day = end_date[:day].to_i
+
+    start_parsed_date = Date.new(start_date[:year].to_i, start_date[:month].to_i, start_date[:day].to_i)
+
+    end_parsed_date = Date.new(end_date[:year].to_i, end_date[:month].to_i, end_date[:day].to_i)
+    # start_date = @dates
+
+    @fees = @user.fees(start_parsed_date, end_parsed_date)
     render 'profile'
   end
+
 
   private
 

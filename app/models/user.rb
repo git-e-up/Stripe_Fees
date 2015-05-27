@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
 
       start_date = start_date.to_time.to_i
-
+      
       end_date = end_date.to_time.to_i
 
       transaction_list =Stripe::BalanceTransaction.all(:limit => 1000)
