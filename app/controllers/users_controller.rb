@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   def api_key
     puts params[:api_key]
     authenticate!
-    
+
     current_user.update({api_key: params[:api_key]})
     current_user.save!
     redirect_to '/profile'
@@ -55,6 +55,10 @@ class UsersController < ApplicationController
     @start_date = params[:start_date] || Date.today
     @end_date = params[:end_date] || Date.today
   # will set @date to Date.today if params[:date].nil?
+  end
+
+  def dates
+    @start_year = params[:start_year] || Date.today
   end
 
   private

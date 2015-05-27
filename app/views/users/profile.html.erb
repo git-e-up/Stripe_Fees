@@ -31,6 +31,13 @@
   <% end %>
 
 <% end %>
+Start year
+<%= form_tag('/dates', method: :post) do %>
+<%= text_field_tag :start_year %>
+<%= submit_tag "submit " %>
+<% end %>
+
+
 
 
 <!-- <%= form_tag('/api_key', method: :get) do %>
