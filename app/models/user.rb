@@ -30,13 +30,17 @@ class User < ActiveRecord::Base
 
 
       fees_in_range.each do |amount|
-         fees_array.push(amount.fee)
+         fees_array.push(amount.fee/100.round(2))
       end
 
       return 0 if fees_array.empty?
 
-      final = (fees_array.inject{|sum,x| sum + x })/100.round(2)
-      fees_in_range.fee_details
+      # fees_dollars = fees_array.each.to_i/100
+
+      final = (fees_array.inject{|sum,x| sum + x }).round(2)
+
+
+      return {total_fees: "$"+final.to_s, fees_in_range: fees_array}
 
     else
       []
