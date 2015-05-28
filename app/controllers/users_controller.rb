@@ -87,9 +87,9 @@ class UsersController < ApplicationController
     start_date = params[:start]
     end_date = params[:end]
 
-    puts end_date[:year].to_i
-    puts end_date[:month].to_i
-    puts end_date[:day].to_i
+    # puts end_date[:year].to_i
+    # puts end_date[:month].to_i
+    # puts end_date[:day].to_i
 
     # end_date = params[:date]
     # end_year = end_date[:year].to_i
