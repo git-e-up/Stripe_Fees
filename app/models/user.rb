@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
 
 
-  def fees(start_date = Date.new(2015,5,11), end_date = Date.new(2015,5,21))
+  def fees(start_date = Date.new(2010,5,11), end_date = Date.new(2010,5,21))
 
     if self.api_key
       Stripe.api_key = self.api_key
@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
 
 
       start_date = start_date.to_time.to_i
-      
+
       end_date = end_date.to_time.to_i
 
       transaction_list =Stripe::BalanceTransaction.all(:limit => 1000)

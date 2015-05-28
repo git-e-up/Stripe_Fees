@@ -16,7 +16,7 @@
   </p>
   <p>
     your api key contains the following numerals: <strong><%= @user.api_key.gsub!(/[^0123456789 ]/,'') %></strong>
-  <p>
+  </p>
   <p>
     for security all letters have been omitted.
 
@@ -33,10 +33,14 @@
 <% end %>
 
 <strong>Select your date range</strong>
+<h1 id="start">
 <%= form_tag('/end_dates', method: :post) do %>
-<%= select_date(nil, :prefix => 'start') %>
-<%= select_date(nil, :prefix => 'end') %>
+<%= select_date(Date.today-30, :prefix => 'start') %>
+</h1>
+<p id="end">
+<%= select_date(Date.today, :prefix => 'end') %>
 <%= submit_tag "submit " %>
+</p>
 <% end %>
 
 
