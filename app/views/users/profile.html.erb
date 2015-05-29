@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
- <title>TicketPunch</title>
+
  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
  <%= csrf_meta_tags %>
@@ -49,14 +49,14 @@
 <% end %>
 
 <strong>Select your date range</strong>
-<h1 id="start">
+<h3 id="start">
 <%= form_tag('/end_dates', method: :post) do %>
 <%= select_date(Date.today-30, :prefix => 'start') %>
 </h1>
-<p id="end">
+<h3 id="end">
 <%= select_date(Date.today, :prefix => 'end') %>
 <%= submit_tag "submit " %>
-</p>
+</h1>
 <% end %>
 
 
