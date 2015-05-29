@@ -32,6 +32,14 @@ class User < ActiveRecord::Base
       fees_in_range.each do |amount|
          fees_array.push(amount.fee/100.round(2))
       end
+############
+      # another = []
+      #
+      # fees_array.each do |dollaz|
+      #
+      #   another.push("hello"+fees_array[dollaz].to_s)
+      # end
+
 
       return 0 if fees_array.empty?
 
@@ -40,7 +48,12 @@ class User < ActiveRecord::Base
       final = (fees_array.inject{|sum,x| sum + x }).round(2)
 
 
-      return {total_fees: "$"+final.to_s, fees_in_range: fees_array}
+      neat = {total_fees: "$"+final.to_s, fees_array: fees_array.to_s}
+
+      return neat[:total_fees], 'which is composed of the following fees within the search range: ' + neat[:fees_array]
+
+
+
 
     else
       []

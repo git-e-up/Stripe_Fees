@@ -58,25 +58,26 @@ class UsersController < ApplicationController
 
 
 
-  require 'date'
-  def dates
-    authenticate!
-    @user = current_user
-    @api_key = (params[:api_key])
-
-    date = params[:date]
-    year = date[:year].to_i
-    month = date[:month].to_i
-    day = date[:day].to_i
-
-    @dates = Date.new(year, month, day)
-    # @dates = start_date
-
-    # @fees = @user.fees(start_date, end_date)
-    # render 'end_dates'
-  end
+  # require 'date'
+  # def dates
+  #   authenticate!
+  #   @user = current_user
+  #   @api_key = (params[:api_key])
+  #
+  #   date = params[:date]
+  #   year = date[:year].to_i
+  #   month = date[:month].to_i
+  #   day = date[:day].to_i
+  #
+  #   @dates = Date.new(year, month, day)
+  #   # @dates = start_date
+  #
+  #   # @fees = @user.fees(start_date, end_date)
+  #   # render 'end_dates'
+  # end
 
   def end_dates
+
     authenticate!
     @user = current_user
     @api_key = (params[:api_key])
@@ -102,7 +103,13 @@ class UsersController < ApplicationController
     # start_date = @dates
 
     @fees = @user.fees(start_parsed_date, end_parsed_date)
+    # send_file "public/Preloader_3.gif", type: "image/gif", disposition: "inline"
+    #
+    # render 'profile' do |page|
+    #       page.replace_html "display_ajax", :partial => 'name-of-your-partial'
     render 'profile'
+     
+
   end
 
 
