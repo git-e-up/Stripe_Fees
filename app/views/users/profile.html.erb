@@ -9,57 +9,83 @@
 
 
 
+<body class="bg-primary">
 
 
+<header class="text-muted jumbotron container-fluid">
+  <div class="row">
+
+    <div class="col-sm-4"><strong> Stripe Fees </strong></div>
+
+    <div class="col-sm-4">Welcome <%= @user.username %>
+    </div>
 
 
+    <div class="col-sm-4">
+    <%= form_tag('/log_out', method: :delete) do %>
+    <%= submit_tag "Log-Out " %>
+    <% end %>
+    </div>
+  </div>
+</header>
 
-<h3>Welcome <%= @user.username %></h3>
-
-
-
-<%= form_tag('/log_out', method: :delete) do %>
-<%= submit_tag "Log-Out " %>
-<% end %>
-
-<div>Submit your api info below </div>
+<article class="bg-info text-info">
+<p>
 
 <% if @user.api_key %>
 
-  <p>your fees for the period are:
+Your fees for the period are:
     <strong>$<%= @fees %></strong>
-
+(if you have not entered a date range, this will be $0 by default)
   </p>
   <p>
-    your api key contains the following numerals: <strong><%= @user.api_key.gsub!(/[^0123456789 ]/,'') %></strong>
+    Your api key contains the following numerals: <strong><%= @user.api_key.gsub!(/[^0123456789 ]/,'') %></strong>
   </p>
   <p>
-    for security all letters have been omitted.
+    For security all letters have been omitted.
 
   </p>
+  <strong>Select your date range</strong>
+  <div class="text-muted row">
+
+      <div class="col-sm-4">
+
+  <%= form_tag('/end_dates', method: :post) do %>
+  <%= select_date(Date.today-30, :prefix => 'start') %>
+      </div>
+      <div class="col-sm-1">
+        to
+      </div>
+
+      <div class="col-sm-5">
+
+  <%= select_date(Date.today, :prefix => 'end') %>
+  <%= submit_tag "submit " %>
+
+  <% end %>
+
+      </div>
+      <div class="text-warning">
+      <%= form_tag('/api_key', method: :delete) do %>
+      <%= submit_tag "Enter a new API key" %>
+      <% end %>
+</article>
 
 <% else %>
+<div class="row">
 
-
+  <div class="col-sm-4">Submit your api info below
   <%= form_tag('/api_key', method: :post) do %>
   <%= text_field_tag :api_key %>
   <%= submit_tag "submit " %>
   <% end %>
 
+
+  </div>
+  <div class="col-sm-8">
+<img src="http://zippy.gfycat.com/CandidGrossArabianhorse.gif" alt="" height="300" width="500"/>
+  </div>
+</div>
 <% end %>
-
-<strong>Select your date range</strong>
-<h3 id="start">
-<%= form_tag('/end_dates', method: :post) do %>
-<%= select_date(Date.today-30, :prefix => 'start') %>
-</h1>
-<h3 id="end">
-<%= select_date(Date.today, :prefix => 'end') %>
-<%= submit_tag "submit " %>
-</h1>
-<% end %>
-
-
-
-</h3>
 </body>
+</html>

@@ -1,10 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+ <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+ <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+ <%= csrf_meta_tags %>
+</head>
+
+
 <h3>Sign-In,
   <% if (@user != nil) %>
         <%= @user.username %>
       <% else %>
         <%= "guest" %>
       <% end %>
-      
+
 
 
 <%= form_tag('/log_in', method: :post) do %>
@@ -18,3 +28,4 @@
 <%= form_tag('/new', method: :get) do %>
 <%= submit_tag "New users click here " %>
 <% end %>
+</html>

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get '/api_key' => 'users#api_key'
   post '/api_key' => 'users#api_key'
+  delete '/api_key' => 'users#api_key'
 
   post '/profile' => 'users#api_key'
   get '/profile' => 'users#api_key'
