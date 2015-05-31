@@ -76,6 +76,7 @@ class UsersController < ApplicationController
   #   # render 'end_dates'
   # end
 
+  require 'date'
   def end_dates
 
     authenticate!
@@ -103,12 +104,14 @@ class UsersController < ApplicationController
     # start_date = @dates
 
     @fees = @user.fees(start_parsed_date, end_parsed_date)
+    @fees2 = @user.fees(start_parsed_date, end_parsed_date)
     # send_file "public/Preloader_3.gif", type: "image/gif", disposition: "inline"
     #
     # render 'profile' do |page|
     #       page.replace_html "display_ajax", :partial => 'name-of-your-partial'
+
     render 'profile'
-     
+
 
   end
 

@@ -34,8 +34,9 @@
 
 <% if @user.api_key %>
 
-Your fees for the period are:
+Your fees for the period <%= form_tag('/end_dates/:start', method: :get) %> are:
     <strong>$<%= @fees %></strong>
+
 (if you have not entered a date range, this will be $0 by default)
   </p>
   <p>
@@ -70,6 +71,7 @@ Your fees for the period are:
       <%= submit_tag "Enter a new API key" %>
       <% end %>
 </article>
+<strong><%= @fees2 %></strong>
 
 <% else %>
 <div class="row">
