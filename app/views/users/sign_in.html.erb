@@ -7,25 +7,47 @@
  <%= csrf_meta_tags %>
 </head>
 
+<header class="text-muted jumbotron container-fluid">
+  <div class="row">
 
-<h3>Sign-In,
-  <% if (@user != nil) %>
-        <%= @user.username %>
-      <% else %>
-        <%= "guest" %>
+    <div class="col-sm-4"><strong> Stripe Fees </strong></div>
+    <% if (@user != nil) %>
+      <div class="col-sm-4">Welcome <a href="/profile" class="text-muted"><%= @user.username %></a>
+      </div>
+      <div class="col-sm-4">
+      <%= form_tag('/log_out', method: :delete) do %>
+      <%= submit_tag "Log-Out " %>
+      <% end %>
+      </div>
+    <% else %>
+      <div class="col-sm-4 pull-right">Welcome <%= "Guest" %>
+      </div>
       <% end %>
 
 
+  </div>
+</header>
+<body class="bg-primary">
+<div class="bg-info text-info">
+  <% if (@user != nil) %>
+        <%= "You are logged in as " + @user.username %>
+      <% else %>
+        <%= "Please sign in" %>
 
-<%= form_tag('/log_in', method: :post) do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
-<% end %>
 
-<%= form_tag('/new', method: :get) do %>
-<%= submit_tag "New users click here " %>
-<% end %>
+
+        <%= form_tag('/log_in', method: :post) do %>
+          <%= label_tag :username %>
+          <%= text_field_tag :username %>
+          <%= label_tag :password %>
+          <%= password_field_tag :password %>
+          <%= submit_tag "Submit" %>
+        <% end %>
+
+        <%= form_tag('/new', method: :get) do %>
+        <%= submit_tag "New users click here " %>
+        <% end %>
+      <% end %>
+</div>
+</body>
 </html>

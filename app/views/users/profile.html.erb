@@ -15,7 +15,7 @@
 <header class="text-muted jumbotron container-fluid">
   <div class="row">
 
-    <div class="col-sm-4"><strong> Stripe Fees </strong></div>
+    <div class="col-sm-4"><a href="/" class="text-muted"><strong> Stripe Fees </strong></a></div>
 
     <div class="col-sm-4">Welcome <%= @user.username %>
     </div>
@@ -74,7 +74,7 @@ Your fees for the period are:
 <% else %>
 <div class="row">
 
-  <div class="col-sm-4">Submit your api info below
+  <div class="col-sm-4">Submit your Stripe Live Secrect Key below
   <%= form_tag('/api_key', method: :post) do %>
   <%= text_field_tag :api_key %>
   <%= submit_tag "submit " %>
@@ -83,6 +83,7 @@ Your fees for the period are:
 
   </div>
   <div class="col-sm-8">
+
 <img src="http://zippy.gfycat.com/CandidGrossArabianhorse.gif" alt="" height="300" width="500"/>
   </div>
 </div>

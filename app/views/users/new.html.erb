@@ -7,13 +7,19 @@
  <%= csrf_meta_tags %>
 </head>
 
-<div class="bg-primary text-info jumbotron">
+<header class="text-muted jumbotron container-fluid">
+  <div class="row">
 
+    <div class="col-sm-4"><a href="/" class="text-muted"><strong> Stripe Fees </strong></a></div>
+    <div class="col-sm-4 pull-right"><a href="/" class="text-muted">Back</a></div>
+</header>
+<body class="bg-primary">
 <h3>Welcome</h3>
 
-</div>
-
+<div class="bg-info text-info">
+Please select a username and password
 
 <%= render partial: 'form' %>
-
+</div>
+</body>
 </html>
