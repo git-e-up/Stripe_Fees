@@ -34,7 +34,7 @@
 
 <% if @user.api_key %>
 
-Your fees for the period <%= form_tag('/end_dates/:start', method: :get) %> are:
+Your fees for the period are:
     <strong>$<%= @fees %></strong>
 
 (if you have not entered a date range, this will be $0 by default)
@@ -46,7 +46,7 @@ Your fees for the period <%= form_tag('/end_dates/:start', method: :get) %> are:
     For security all letters have been omitted.
 
   </p>
-  <strong>Select your date range</strong>
+  <strong>Select your date range*</strong>
   <div class="text-muted row">
 
       <div class="col-sm-4">
@@ -71,7 +71,9 @@ Your fees for the period <%= form_tag('/end_dates/:start', method: :get) %> are:
       <%= submit_tag "Enter a new API key" %>
       <% end %>
 </article>
-<strong><%= @fees2 %></strong>
+<strong><%= @fees_2 %></strong>
+<p><small> *The date you you select presumes 12:00 am GMT on that date. So, if, for example, you want to see fees for transaction for the entire month of May, it is suggested you use 5/1 - 6/1 as your search parameters. To that end, <strong class="text-warning">your beginning date should not be the same as your end date or your search will yield $0.</strong> Because it is based on GMT, please keep in mind transactions that occur within several hours of the beginning or end of a search date may not fall within your search parameters. </small></p>
+
 
 <% else %>
 <div class="row">

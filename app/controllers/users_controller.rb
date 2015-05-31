@@ -104,7 +104,7 @@ class UsersController < ApplicationController
     # start_date = @dates
 
     @fees = @user.fees(start_parsed_date, end_parsed_date)
-    @fees2 = @user.fees(start_parsed_date, end_parsed_date)
+    @fees_2 = @user.fees_2(start_parsed_date, end_parsed_date)
     # send_file "public/Preloader_3.gif", type: "image/gif", disposition: "inline"
     #
     # render 'profile' do |page|

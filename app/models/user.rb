@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def fees2(start_date = Date.new(2010,5,11), end_date = Date.new(2010,5,21))
+  def fees_2(start_date = Date.new(2010,5,11), end_date = Date.new(2010,5,21))
 
     if self.api_key
       Stripe.api_key = self.api_key
@@ -102,12 +102,15 @@ class User < ActiveRecord::Base
 
       # fees_dollars = fees_array.each.to_i/100
 
+
+
       final = (fees_array.inject{|sum,x| sum + x }).round(2)
 
+      fees_array.reject! {|x| x == 0}
 
       neat = {total_fees: "$"+final.to_s, fees_array: fees_array.to_s}
 
-      return neat[:total_fees], 'which is composed of the following fees within the search range: ' + neat[:fees_array]
+      return "Your total fees of " +neat[:total_fees]+ ' are composed of the following fees within the search range: ' + neat[:fees_array] + ". Transactions with fees of $0 are ommited from this array."
 
 
 
