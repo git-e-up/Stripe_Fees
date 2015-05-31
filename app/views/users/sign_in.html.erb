@@ -30,7 +30,7 @@
 <body class="bg-primary">
 <div class="bg-info text-info">
   <% if (@user != nil) %>
-        <%= "You are logged in as " + @user.username %>
+        <%= "Hi " + @user.username + ". Let's go back to your " %><a href="/profile" class="text-muted"> profile</a>
       <% else %>
         <%= "Please sign in" %>
 
@@ -49,5 +49,7 @@
         <% end %>
       <% end %>
 </div>
+<article>Stripe will show your fees for an individual transaction, but what it doesn't seem to do is show you your fees over a given date range. This application aims to solve that problem. </article>
+
 </body>
 </html>
