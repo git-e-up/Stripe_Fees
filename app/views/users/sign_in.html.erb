@@ -7,35 +7,39 @@
  <%= csrf_meta_tags %>
 </head>
 
-<header class="text-muted jumbotron container-fluid">
-  <div class="row">
 
-    <div class="col-sm-4"><strong> Stripe Fees </strong></div>
-    <% if (@user != nil) %>
-      <div class="col-sm-4">Welcome <a href="/profile" class="text-muted"><%= @user.username %></a>
-      </div>
-      <div class="col-sm-4">
-      <%= form_tag('/log_out', method: :delete) do %>
-      <%= submit_tag "Log-Out " %>
-      <% end %>
-      </div>
-    <% else %>
-      <div class="col-sm-4 pull-right">Welcome <%= "Guest" %>
-      </div>
-      <% end %>
+  <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+    <div class="container-fluid row">
+
+      <div class="col-sm-4"><strong> Stripe Fees </strong></div>
+      <% if (@user != nil) %>
+        <div class="col-sm-4">Welcome <a href="/profile" class="text-muted"><%= @user.username %></a>
+        </div>
+        <div class="col-sm-4">
+        <%= form_tag('/log_out', method: :delete) do %>
+        <%= submit_tag "Log-Out " %>
+        <% end %>
+        </div>
+      <% else %>
+        <div class="col-sm-4 pull-right">Welcome <%= "Guest" %>
+        </div>
+        <% end %>
 
 
-  </div>
-</header>
+    </div>
+  </nav>
+
 <body class="bg-primary">
+  <h3>Please sign in</h3>
 <div class="bg-info text-info">
   <% if (@user != nil) %>
         <%= "Hi " + @user.username + ". Let's go back to your " %><a href="/profile" class="text-muted"> profile</a>
       <% else %>
-        <%= "Please sign in" %>
 
 
 
+      <div class="row">
+        <div class="col-sm-8">
         <%= form_tag('/log_in', method: :post) do %>
           <%= label_tag :username %>
           <%= text_field_tag :username %>
@@ -43,12 +47,15 @@
           <%= password_field_tag :password %>
           <%= submit_tag "Submit" %>
         <% end %>
-
+        </div>
+        <div class="col-sm-4">
         <%= form_tag('/new', method: :get) do %>
         <%= submit_tag "New users click here " %>
         <% end %>
       <% end %>
-</div>
+        </div>
+      </div>
+
 <article>Stripe will show your fees for an individual transaction, but what it doesn't seem to do is show you your fees over a given date range. This application aims to solve that problem. </article>
 
 </body>
