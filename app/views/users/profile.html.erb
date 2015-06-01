@@ -13,6 +13,7 @@
 
 
 <header class="text-muted jumbotron container-fluid">
+
   <div class="row">
 
     <div class="col-sm-4"><a href="/" class="text-muted"><strong> Stripe Fees </strong></a></div>
@@ -37,11 +38,22 @@
 Your fees for the period <%= @start_month %>/<%= @start_day %>/<%= @start_year %> to <%= @end_month %>/<%= @end_day %>/<%= @end_year %> are:
     <strong>$<%= @fees %></strong>
 
+
 (if you have not entered a date range, this will be $0 by default)
   </p>
+  <% if @fees != 0 %>
+  <button id="hi">click here to see a breakdown of your fees</button>
+  <script>
+    $("#hi").click(function(){
+      $('#click').html('<strong class="text-muted"><%= @fees_2 %> Transactions with fees of $0 are ommited from this array. </strong>')
+    })
+  </script>
+  <% else %>
+  <% end %>
   <p>
     Your api key contains the following numerals: <strong><%= @user.api_key.gsub!(/[^0123456789 ]/,'') %></strong>
   </p>
+
   <p>
     For security all letters have been omitted.
 
@@ -71,14 +83,16 @@ Your fees for the period <%= @start_month %>/<%= @start_day %>/<%= @start_year %
       <%= submit_tag "Enter a new API key" %>
       <% end %>
 </article>
-<strong><%= @fees_2 %></strong>
-<p><small> *The date you you select presumes 12:00 am GMT on that date. So, if, for example, you want to see fees for transaction for the entire month of May, it is suggested you use 5/1 - 6/1 as your search parameters. To that end, <strong class="text-warning">your beginning date should not be the same as your end date or your search will yield $0.</strong> Because it is based on GMT, please keep in mind transactions that occur within several hours of the beginning or end of a search date may not fall within your search parameters. </small></p>
+<div class="container pull-left" id="click">
+  <!-- <strong><%= @fees_2 %></strong>  Transactions with fees of $0 are ommited from this array. -->
+</div>
+<p class="container pull-left"><small> *The date you you select presumes 12:00 am GMT on that date. So, if, for example, you want to see fees for transaction for the entire month of May, it is suggested you use 5/1 - 6/1 as your search parameters. To that end, <strong class="text-warning">your beginning date should not be the same as your end date or your search will yield $0.</strong> Because it is based on GMT, please keep in mind transactions that occur within several hours of the beginning or end of a search date may not fall within your search parameters. </small></p>
 
 
 <% else %>
 <div class="row">
 
-  <div class="col-sm-4">Submit your Stripe Live Secrect Key below
+  <div class="col-sm-4">Submit your Stripe Live Secret Key below
   <%= form_tag('/api_key', method: :post) do %>
   <%= text_field_tag :api_key %>
   <%= submit_tag "submit " %>

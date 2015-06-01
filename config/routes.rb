@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   post '/end_dates' => 'users#end_dates'
   get '/end_dates' => 'users#end_dates'
 
+
   root 'users#sign_in'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
