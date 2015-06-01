@@ -12,9 +12,9 @@
 <body class="bg-primary">
 
 
-<header class="text-muted jumbotron container-fluid">
+<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
 
-  <div class="row">
+  <div class="container-fluid row">
 
     <div class="col-sm-4"><a href="/" class="text-muted"><strong> Stripe Fees </strong></a></div>
 
@@ -22,13 +22,13 @@
     </div>
 
 
-    <div class="col-sm-4">
+    <div class="col-sm-4 text-warning">
     <%= form_tag('/log_out', method: :delete) do %>
     <%= submit_tag "Log-Out " %>
     <% end %>
     </div>
   </div>
-</header>
+</nav>
 
 <article class="bg-info text-info container-fluid">
 <p>
@@ -74,7 +74,9 @@ Your fees for the period <%= @start_month %>/<%= @start_day %>/<%= @start_year %
       <div class="col-sm-5">
 
   <%= select_date(Date.today, :prefix => 'end') %>
-  <%= submit_tag "submit " %>
+  <%= button_tag "submit", 'data-disable-with' => "<div class='i'>_</div> ".html_safe %>
+
+  <div class='i hidden'></div>
 
   <% end %>
 
