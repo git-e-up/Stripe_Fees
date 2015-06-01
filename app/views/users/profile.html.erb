@@ -37,10 +37,7 @@
 
 Your fees for the period <%= @start_month %>/<%= @start_day %>/<%= @start_year %> to <%= @end_month %>/<%= @end_day %>/<%= @end_year %> are:
     <strong>$<%= @fees %></strong>
-
-
-(if you have not entered a date range, this will be $0 by default)
-  </p>
+</p>
     <% if @fees != 0 %>
     <button id="hi">click here to see a breakdown of your fees</button>
     <script>
@@ -50,12 +47,11 @@ Your fees for the period <%= @start_month %>/<%= @start_day %>/<%= @start_year %
 
     </script>
     <% else %>
+    <p>*You have not yet entered a date range. Please do so below*</p>
     <% end %>
   <p>
-    Your api key contains the following numerals: <strong><%= @user.api_key.gsub!(/[^0123456789 ]/,'') %></strong>
-  </p>
+    Your api key contains the following numerals: <strong><%= @user.api_key.gsub!(/[^0123456789 ]/,'') +"..." %></strong>
 
-  <p>
     For security all letters have been omitted.
 
   </p>
@@ -74,7 +70,7 @@ Your fees for the period <%= @start_month %>/<%= @start_day %>/<%= @start_year %
       <div class="col-sm-5">
 
   <%= select_date(Date.today, :prefix => 'end') %>
-  <%= button_tag "submit", 'data-disable-with' => "<div class='i'>_</div> ".html_safe %>
+  <%= button_tag "submit", 'data-disable-with' => "<div class='i'>_</div> loading".html_safe %>
 
   <div class='i hidden'></div>
 
