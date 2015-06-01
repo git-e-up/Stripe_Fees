@@ -89,6 +89,13 @@ class UsersController < ApplicationController
     start_date = params[:start]
     end_date = params[:end]
 
+    @start_month=start_date[:month]
+    @start_day=start_date[:day]
+    @start_year=start_date[:year]
+    @end_month=end_date[:month]
+    @end_day=end_date[:day]
+    @end_year=end_date[:year]
+
     # puts end_date[:year].to_i
     # puts end_date[:month].to_i
     # puts end_date[:day].to_i

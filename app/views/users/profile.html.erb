@@ -34,7 +34,7 @@
 
 <% if @user.api_key %>
 
-Your fees for the period are:
+Your fees for the period <%= @start_month %>/<%= @start_day %>/<%= @start_year %> to <%= @end_month %>/<%= @end_day %>/<%= @end_year %> are:
     <strong>$<%= @fees %></strong>
 
 (if you have not entered a date range, this will be $0 by default)
