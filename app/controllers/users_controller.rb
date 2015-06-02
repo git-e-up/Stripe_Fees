@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
 
-  def initialize
-    @dates = nil
-  end
+
   def index
     @users = User.all
   end
@@ -42,8 +40,9 @@ class UsersController < ApplicationController
   end
 
   def sign_in
-    @user = current_user
+    # @user = current_user
     # render sign-in form here
+    # render :layout => "application"
   end
 
   def api_key
@@ -75,52 +74,52 @@ class UsersController < ApplicationController
   #   # @fees = @user.fees(start_date, end_date)
   #   # render 'end_dates'
   # end
-
-  require 'date'
-  def end_dates
-
-    authenticate!
-    @user = current_user
-    @api_key = (params[:api_key])
-
-    puts params[:start]
-    puts params[:end]
-
-    start_date = params[:start]
-    end_date = params[:end]
-
-    @start_month=start_date[:month]
-    @start_day=start_date[:day]
-    @start_year=start_date[:year]
-    @end_month=end_date[:month]
-    @end_day=end_date[:day]
-    @end_year=end_date[:year]
-
-    # puts end_date[:year].to_i
-    # puts end_date[:month].to_i
-    # puts end_date[:day].to_i
-
-    # end_date = params[:date]
-    # end_year = end_date[:year].to_i
-    # end_month = end_date[:month].to_i
-    # end_day = end_date[:day].to_i
-
-    start_parsed_date = Date.new(start_date[:year].to_i, start_date[:month].to_i, start_date[:day].to_i)
-
-    end_parsed_date = Date.new(end_date[:year].to_i, end_date[:month].to_i, end_date[:day].to_i)
-    # start_date = @dates
-
-    @fees = @user.fees(start_parsed_date, end_parsed_date)
-    @fees_2 = @user.fees_2(start_parsed_date, end_parsed_date)
-    # send_file "public/Preloader_3.gif", type: "image/gif", disposition: "inline"
-    #
-    # render 'profile' do |page|
-    #       page.replace_html "display_ajax", :partial => 'name-of-your-partial'
-
-    render 'profile'
-
-
-  end
+  #
+  # require 'date'
+  # def end_dates
+  #
+  #   authenticate!
+  #   @user = current_user
+  #   @api_key = (params[:api_key])
+  #
+  #   puts params[:start]
+  #   puts params[:end]
+  #
+  #   start_date = params[:start]
+  #   end_date = params[:end]
+  #
+  #   @start_month=start_date[:month]
+  #   @start_day=start_date[:day]
+  #   @start_year=start_date[:year]
+  #   @end_month=end_date[:month]
+  #   @end_day=end_date[:day]
+  #   @end_year=end_date[:year]
+  #
+  #   # puts end_date[:year].to_i
+  #   # puts end_date[:month].to_i
+  #   # puts end_date[:day].to_i
+  #
+  #   # end_date = params[:date]
+  #   # end_year = end_date[:year].to_i
+  #   # end_month = end_date[:month].to_i
+  #   # end_day = end_date[:day].to_i
+  #
+  #   start_parsed_date = Date.new(start_date[:year].to_i, start_date[:month].to_i, start_date[:day].to_i)
+  #
+  #   end_parsed_date = Date.new(end_date[:year].to_i, end_date[:month].to_i, end_date[:day].to_i)
+  #   # start_date = @dates
+  #
+  #   @fees = @user.fees(start_parsed_date, end_parsed_date)
+  #   @fees_2 = @user.fees_2(start_parsed_date, end_parsed_date)
+  #   # send_file "public/Preloader_3.gif", type: "image/gif", disposition: "inline"
+  #   #
+  #   # render 'profile' do |page|
+  #   #       page.replace_html "display_ajax", :partial => 'name-of-your-partial'
+  #
+  #   render 'profile'
+  #
+  #
+  # end
 
 
 

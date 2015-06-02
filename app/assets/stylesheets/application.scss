@@ -10,14 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap
+ *= require flat-ui
  *= require_tree .
  *= require_self
- *= require_bootstrap.css
- *= require_flat-ui.css
  */
 
- @import "bootstrap";
- @import "flat-ui";
 
  .black {
    color: rgb(0,0,255) !important;
