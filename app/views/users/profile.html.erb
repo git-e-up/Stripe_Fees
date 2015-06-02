@@ -19,13 +19,13 @@
 
       <div class="col-sm-4"><a href="/" class="text-muted"><strong> Stripe Fees </strong></a></div>
 
-      <div class="col-sm-4">Welcome <%= @user.username %>
+      <div class="col-sm-4 text-muted">Welcome <%= @user.username %>
       </div>
 
 
-      <div class="col-sm-4 text-warning">
+      <div class="col-sm-4 text-info matt">
       <%= form_tag('/log_out', method: :delete) do %>
-      <%= submit_tag "Log-Out " %>
+      <%= submit_tag "Log-Out" %>
       <% end %>
       </div>
 
@@ -58,7 +58,7 @@ Your fees for the period <%= @start_month %>/<%= @start_day %>/<%= @start_year %
 
   </p>
   <strong>Select your date range*</strong>
-  <div class="text-muted row">
+  <div class="text-info row">
 
       <div class="col-sm-4">
 
@@ -72,7 +72,7 @@ Your fees for the period <%= @start_month %>/<%= @start_day %>/<%= @start_year %
       <div class="col-sm-5">
 
   <%= select_date(Date.today, :prefix => 'end') %>
-  <%= button_tag "submit", 'data-disable-with' => "<div class='i'>_</div> loading".html_safe %>
+  <%= button_tag "submit", 'data-disable-with' => "<div class='i'></div> loading".html_safe %>
 
   <div class='i hidden'></div>
 </div>
@@ -84,15 +84,15 @@ Your fees for the period <%= @start_month %>/<%= @start_day %>/<%= @start_year %
 
 
   <!-- <strong><%= @fees_2 %></strong>  Transactions with fees of $0 are ommited from this array. -->
-<article class="bg-primary">
-  <p class="container pull-left"><small> *The date you you select presumes 12:00 am GMT on that date. So, if, for example, you want to see fees on transactions for the entire month of May, it is suggested you use 5/1 - 6/1 as your search parameters. To that end, <strong class="text-warning">your beginning date should not be the same as your end date or your search will yield $0.</strong> Because it is based on GMT, please keep in mind transactions that occur within several hours of the beginning or end of a search date may not fall within your search parameters. </small></p>
 
-  <div class="text-warning" id="center">
+  <p class="fluid-container pull-left"><small> *The date you you select presumes 12:00 am GMT on that date. So, if, for example, you want to see fees on transactions for the entire month of May, it is suggested you use 5/1 - 6/1 as your search parameters. To that end, <strong class="text-warning">your beginning date should not be the same as your end date or your search will yield $0.</strong> Because it is based on GMT, please keep in mind transactions that occur within several hours of the beginning or end of a search date may not fall within your search parameters. </small></p>
+
+  <div class="text-info matt matt-center">
   <%= form_tag('/api_key', method: :delete) do %>
   <%= submit_tag "Enter a new API key" %>
   <% end %>
   </div>
-</article>
+
 <% else %>
 
 <div class="row">
@@ -100,7 +100,7 @@ Your fees for the period <%= @start_month %>/<%= @start_day %>/<%= @start_year %
   <div class="col-sm-4">Submit your Stripe Live Secret Key below
   <%= form_tag('/api_key', method: :post) do %>
   <%= text_field_tag :api_key %>
-  <%= button_tag "submit", 'data-disable-with' => "<div class='i'>_</div> loading".html_safe %>
+  <%= button_tag "submit", 'data-disable-with' => "<div class='i'></div> loading".html_safe %>
   <% end %>
 
 

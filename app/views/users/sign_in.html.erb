@@ -11,11 +11,11 @@
   <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
     <div class="container-fluid row">
 
-      <div class="col-sm-4"><strong> Stripe Fees </strong></div>
+      <div class="col-sm-4 text-muted"><strong> Stripe Fees </strong></div>
       <% if (@user != nil) %>
-        <div class="col-sm-4">Welcome <a href="/profile" class="text-muted"><%= @user.username %></a>
+        <div class="col-sm-4 text-muted">Welcome <a href="/profile" class="text-muted"><%= @user.username %></a>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 text-info matt">
         <%= form_tag('/log_out', method: :delete) do %>
         <%= submit_tag "Log-Out " %>
         <% end %>
@@ -48,14 +48,14 @@
           <%= submit_tag "Submit" %>
         <% end %>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 pull-right">
         <%= form_tag('/new', method: :get) do %>
         <%= submit_tag "New users click here " %>
         <% end %>
       <% end %>
         </div>
       </div>
-
+</div>
 <article>Stripe will show your fees for an individual transaction, but what it doesn't seem to do is show you your fees over a given date range. This application aims to solve that problem. </article>
 
 </body>
