@@ -7,7 +7,7 @@
 
 <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
 
-  <div class="container-fluid row">
+  <div class="fluid-container row">
 
 
       <div class="col-sm-4"><a href="/" class="text-muted"><strong> Stripe Fees </strong></a></div>
@@ -88,19 +88,19 @@ Your fees for the period <%= @start_month %>/<%= @start_day %>/<%= @start_year %
 
 <% else %>
 
-<div class="row">
+<div class="fluid-container">
 
-  <div class="col-sm-4">Submit your Stripe Live Secret Key below
+  <div class="col-md-12 col-sm-offset-4" style="width:90%">Submit your Stripe Live Secret Key below
+  </div>
+  <div class="col-md-12 col-sm-offset-4">
   <%= form_tag('/api_key', method: :post) do %>
   <%= text_field_tag :api_key %>
   <%= button_tag "submit", 'data-disable-with' => "<div class='i'></div> loading".html_safe %>
   <% end %>
+  </div>
+  <div class="col-sm-12 col-sm-offset-2">
 
-
-</div>
-  <div class="col-sm-8">
-
-<img src="/stripe-fees.gif" alt="" height="300" width="500"/>
+<img src="/stripe-fees.gif" alt="" width="70%"/>
   </div>
 </div>
 <% end %>
