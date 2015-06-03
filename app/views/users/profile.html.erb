@@ -5,25 +5,49 @@
 <body class="bg-primary">
 
 
-<nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-default navbar-inverse navbar-fixed-top">
 
   <div class="fluid-container row">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 
+      <div class="col-sm-4 icon-bar"><a href="/" class="text-muted"><strong> Stripe Fees </strong></a></div>
 
-      <div class="col-sm-4"><a href="/" class="text-muted"><strong> Stripe Fees </strong></a></div>
-
-      <div class="col-sm-4 text-muted">Welcome <%= @user.username %>
+      <div class="col-sm-4 text-muted icon-bar">Welcome <%= @user.username %>
       </div>
 
 
-      <div class="col-sm-4 text-info matt">
+      <div class="col-sm-4 text-info matt icon-bar">
+      <%= form_tag('/log_out', method: :delete) do %>
+      <%= submit_tag "Log-Out" %>
+      <% end %>
+      </div>
+      <!-- <div class="collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><strong> Stripe Fees </strong></li>
+          <li class="text-muted">Welcome <%= @user.username %></li>
+        </ul>
+      </div>  -->
+    </button>
+
+  </div>
+  <div class="navbar-collapse collapse">
+    <!-- <ul class="nav navbar-nav"> -->
+      <div class="col-sm-4 icon-bar"><a href="/" class="text-muted"><strong> Stripe Fees </strong></a></div>
+
+      <div class="col-sm-4 text-muted icon-bar">Welcome <%= @user.username %>
+      </div>
+
+
+      <div class="col-sm-4 text-info matt icon-bar">
       <%= form_tag('/log_out', method: :delete) do %>
       <%= submit_tag "Log-Out" %>
       <% end %>
       </div>
 
+    
   </div>
-</nav>
+
+</div>
 
 <article class="bg-info text-info container-fluid">
 <p>
