@@ -59,7 +59,7 @@ Your fees for the period <%= @start_month %>/<%= @start_day %>/<%= @start_year %
     <strong>$<%= @fees %></strong>
 </p>
     <% if @fees != 0 %>
-    <button id="hi">click here to see a breakdown of your fees</button>
+    <button class="container" id="hi">click here to see a breakdown of your fees</button>
     <script>
       $("#hi").click(function(){
         $('#hi').html('<strong class="text-info" id="hi2"><%= @fees_2 %> Transactions with fees of $0 are ommited from this array. </strong>')
