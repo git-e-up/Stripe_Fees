@@ -10,6 +10,54 @@
 <body>
 
 <%= yield %>
+<!-- <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+
+  <div class="fluid-container row">
+    <button type="button" class="navbar-toggle hello"  data-toggle="collapse" data-target=".navbar-collapse">
+
+      <div class="col-sm-4 icon-bar"><a href="/" class="text-muted"><strong> Stripe Fees </strong></a></div>
+
+      <% if (@user != nil) %>
+      <div class="col-sm-4 text-muted icon-bar">Welcome <%= @user.username %>
+      </div>
+
+
+      <div class="col-sm-4 text-info matt icon-bar">
+      <%= form_tag('/log_out', method: :delete) do %>
+      <%= submit_tag "Log-Out" %>
+      <% end %>
+      </div>
+
+      <% else %>
+      <div class="col-sm-4 text-muted icon-bar pull-right">Welcome guest
+      </div>
+      <% end %>
+
+    </button>
+
+  </div>
+  <div class="navbar-collapse collapse">
+    
+
+      <div class="col-sm-4 icon-bar active"><a href="/" class="text-muted"><strong> Stripe Fees </strong></a></div>
+      <% if (@user != nil) %>
+      <div class="col-sm-4 text-muted icon-bar active">Welcome <%= @user.username %>
+      </div>
+
+
+      <div class="col-sm-4 text-info matt icon-bar active">
+      <%= form_tag('/log_out', method: :delete) do %>
+      <%= submit_tag "Log-Out" %>
+      <% end %>
+      </div>
+      <% else %>
+      <div class="col-sm-4 text-muted icon-bar active pull-right">Welcome guest
+      </div>
+      <% end %>
+
+  </div>
+
+</nav> -->
 
 
 <img style='visibility:hidden' src="spinning-wheel.gif" alt="" />

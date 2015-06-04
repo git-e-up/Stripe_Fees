@@ -12,8 +12,10 @@
         <% end %>
         </div>
       <% else %>
-        <div class="col-sm-4 pull-right">Welcome <%= "Guest" %>
-        </div>
+      <div class="col-sm-4 col-sm-offset-3 text-info">
+      <%= form_tag('/new', method: :get) do %>
+      <%= submit_tag "New users click here " %>
+      <% end %>
       <% end %>
 
     </div>
@@ -24,25 +26,31 @@
 <div class="bg-info text-info">
   <% if (@user != nil) %>
         <%= "Hi " + @user.username + ". Let's go back to your " %><a href="/profile" class="text-muted"> profile</a>
-      <% else %>
+
+
+
+  <% else %>
 
 
 
       <div class="row">
-        <div class="col-sm-8">
+
         <%= form_tag('/log_in', method: :post) do %>
-          <%= label_tag :username %>
-          <%= text_field_tag :username %>
-          <%= label_tag :password %>
-          <%= password_field_tag :password %>
-          <%= submit_tag "Submit" %>
+        <div class="col-sm-1">  <%= label_tag :username %> </div>
+        <div class="col-sm-3"> <%= text_field_tag :username %> </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-1">  <%= label_tag :password %> </div>
+        <div class="col-sm-3">  <%= password_field_tag :password %>  </div>
+        <div class="col-sm-3">  <%= submit_tag "Submit" %></div>
         <% end %>
-        </div>
-        <div class="col-sm-4 pull-right">
+
+
+        <!-- <div class="col-sm-4 pull-right">
         <%= form_tag('/new', method: :get) do %>
         <%= submit_tag "New users click here " %>
-        <% end %>
-      <% end %>
+        <% end %> -->
+  <% end %>
         </div>
       </div>
 </div>

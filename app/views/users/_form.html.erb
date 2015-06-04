@@ -4,12 +4,15 @@
  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
  <%= csrf_meta_tags %>
 </head>
-<%= form_for @user do |f|%>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+<div class="row">
+  <%= form_for @user do |f|%>
+  <div class="col-sm-1"><%= f.label :username %></div>
+  <div class="col-sm-3"><%= f.text_field :username %></div>
+</div>
+<div class="row">
+  <div class="col-sm-1"><%= f.label :password %></div>
+  <div class="col-sm-3"><%= f.password_field :password %></div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.submit %>
-<% end %>
+  <div class="col-sm-3"><%= f.submit %></div>
+</div>
+  <% end %>
