@@ -1,4 +1,13 @@
 == README
+**Technologies used**
+Rails,
+JQuery,
+Bootstrap,
+Stripe gem
+
+**Live Application**
+<a href="https://stripe-fees.herokuapp.com/" target="_blank">Stripe-Fees</a>
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
