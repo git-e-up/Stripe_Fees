@@ -1,4 +1,4 @@
-== README
+
 **Technologies used**
 Rails,
 JQuery,
