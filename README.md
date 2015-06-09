@@ -8,7 +8,7 @@ JQuery,
 Bootstrap,
 Stripe gem
 
-**Live Application**
+**Live Application:**
 <a href="https://stripe-fees.herokuapp.com/" target="_blank">Stripe-Fees</a>
 
 
