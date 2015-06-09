@@ -1,5 +1,7 @@
 ![alt tag](http://git-e-up.github.io/img/stripe.png)
 
+If you use stripe and don't want to dig around, do a bunch of manual calculations, or pay for an app to give you this info, this is an easy way to uncover processing fees incurred over a date range. 
+
 **Technologies used**
 Rails,
 JQuery,
