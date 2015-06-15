@@ -32,28 +32,16 @@ class User < ActiveRecord::Base
       fees_in_range.each do |amount|
          fees_array.push(amount.fee/100.round(2))
       end
-############
-      # another = []
-      #
-      # fees_array.each do |dollaz|
-      #
-      #   another.push("hello"+fees_array[dollaz].to_s)
-      # end
+
 
 
       return 0 if fees_array.empty?
 
-      # fees_dollars = fees_array.each.to_i/100
+
 
       final = (fees_array.inject{|sum,x| sum + x }).round(2)
 
-
-      # neat = {total_fees: "$"+final.to_s, fees_array: fees_array.to_s}
-      #
-      # return neat[:total_fees], 'which is composed of the following fees within the search range: ' + neat[:fees_array]
-
-
-
+      final_2 = '%.2f' % final
 
     else
       []
@@ -106,15 +94,19 @@ class User < ActiveRecord::Base
 
       final = (fees_array.inject{|sum,x| sum + x }).round(2)
 
+      final_2 = '%.2f' % final
+
       fees_array.reject! {|x| x == 0}
 
+      fees_x = []
       fees_string = ""
 
-      fees_array.each {|x| fees_string << "$#{x}, "}
+      fees_array.each {|x| fees_x << '%.2f' % x}
 
-      # fees_array.each {|x| x == "$"+x.to_s}
+      fees_x.each {|x| fees_string << "$#{x}, "}
 
-      neat = {total_fees: "$"+final.to_s, fees_array: fees_string.to_s}
+
+      neat = {total_fees: "$"+final_2.to_s, fees_array: fees_string.to_s}
 
       return "Your total fees of " +neat[:total_fees]+ ' are composed of the following fees within the search range: ' + neat[:fees_array] +". "
 
