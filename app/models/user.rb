@@ -108,7 +108,13 @@ class User < ActiveRecord::Base
 
       fees_array.reject! {|x| x == 0}
 
-      neat = {total_fees: "$"+final.to_s, fees_array: fees_array.to_s}
+      fees_string = ""
+
+      fees_array.each {|x| fees_string << "$#{x}, "}
+
+      # fees_array.each {|x| x == "$"+x.to_s}
+
+      neat = {total_fees: "$"+final.to_s, fees_array: fees_string.to_s}
 
       return "Your total fees of " +neat[:total_fees]+ ' are composed of the following fees within the search range: ' + neat[:fees_array] +". "
 
