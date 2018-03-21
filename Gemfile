@@ -7,7 +7,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'stripe', require: 'stripe'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.1'
+gem 'rails', '4.2.7.1'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
